@@ -1,0 +1,862 @@
+body {
+    /* global colour variables */
+    --bgColourOne: #f18448;
+    --bgColourTwo: #FFA800;
+    --bgColourThree: #FFCB6D;
+    --bgColourFour: #EFD3B6;
+    --bgColourFive: #D3CCC4;
+    --bgColourSix: #B7C1CA;
+    --bgColourSeven: #a6b6cc;
+    --bgColourEight: #a0bbd3;
+    --bgColourNine: #6F95BC;
+    --mainTextColour: #040b3c;
+    --textColour: #ed2f3c;
+    /*extra stuff */
+    --backgroundIsh: #342A2E;
+    --CloudWhite: #E1FDF5;
+    --BackgroundBlueGrey: #374E5C;
+    --BackgroundBlueGreyDark: #2c414e;
+    --DarkBackgroundBlue: #001220;
+    --CloudBlueGradientEnd: #9CD5E6;
+    --CloudRedDark: #A61827;
+    --CloudRedDarker: #8f1824;
+    --CloudRedLight: #DB4849;
+    --CloudRedHighlight: #F3AB8A;
+    --backgroundred: #cca6a6;
+    --LogoMainRed: #DF4343;
+    --LogoCreamOutline: #FFEFDB;
+    --white: #fff;
+    --MoonSunColour: brightness(0) saturate(100%) invert(74%) sepia(46%) saturate(1254%) hue-rotate(348deg) brightness(102%) contrast(98%);;
+    --transitionDelay: 1s;
+
+    overflow-x: hidden;
+    color: var(--white);
+    font-family: "Gordita Medium";
+    background-color: var(--bgColourSeven);
+    transition: var(--transitionDelay);
+    min-height: 100vh;
+    /* min-width: fit-content; */
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    text-underline-offset: 2px;
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar-corner {
+    background: var(--BackgroundBlueGrey);
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 10px;   
+    
+}
+
+::-webkit-scrollbar-track {
+    background: var(--BackgroundBlueGrey);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--CloudRedDark);
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--LogoMainRed);
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* === NAVIGATION SECTION === */
+
+header {
+    box-sizing: border-box;
+    z-index: 99;
+    position: fixed;
+    width: 100%;
+    height: 65px;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.185), #ffffff00);
+    backdrop-filter: blur(20px);
+    transition: 0.3s ease;
+}
+
+.RedBalloonLogo {
+    height: 65px;
+}
+
+header .NavBar {
+    position: relative;
+    width: 100%;
+    height: 65px;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    transition: 0.5s ease-in-out;
+
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+
+.NavBar li {
+    float: left;
+    padding: 22.5px;
+    cursor: pointer;
+}
+
+.NavBar li:hover {
+    backdrop-filter: blur(30px);
+}
+
+.NavBarHome, .NavBarNews, .NavBarReviews, .LogoNavBar {
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Futura StD Bold";
+    color: var(--white);
+    letter-spacing: 1.5px;
+    font-size: 1rem;
+    transition: 0.5s;
+    text-shadow: 0 3px 20px rgba(4, 4, 4, 0.603);
+}
+
+
+
+/* === FRONTPAGE SECTION === */
+
+main {
+    margin-top: 65px;
+}
+
+.FeaturedContent {
+    position: relative;
+    top: 10vh;
+    z-index: 5;
+}
+
+.RestOfFeaturedContent {
+    position: relative;
+    border-radius: 20px;
+    background-color: var(--BackgroundBlueGrey);
+    width: 90vw;
+    height: 70vh;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.ImageDiv {
+    position: relative;
+    width: 90vw;
+    height: 60vh;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.MainPicture {
+    position: absolute;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+    filter: brightness(60%);
+    will-change: transform;
+    transition: 0.5s ease;
+}
+
+.MainPicture:hover{
+    transform: scale(1.1);
+    filter: brightness(40%);
+}
+
+.ContentTypeText.hovering {
+    text-decoration-line: underline;
+}
+
+.ContentTypeLabel {
+    width: 6vw;
+    height: 3vh;
+    font-size: .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Gordita Light";
+    background-color: var(--CloudRedDark);
+    margin: 4.5vh 4.5vh 1.5vh;
+    border-radius: 20px;
+    opacity: 75%;
+}
+
+.TitleTextDiv {
+    position: relative;
+    z-index: 50;
+}
+
+.TitleText {
+    position: relative;
+    font-size: 2rem;
+    font-family: "Gordita Bold";
+    color: var(--white);
+    margin: 30px;
+    z-index: 50;
+}
+
+.ContentText {
+    margin: 1.5vh 4.5vh 4.5vh;
+}
+
+
+.ContentTypeText.Title{
+    font-size: 1.4rem;
+    font-family: "Gordita Bold";
+    margin-bottom: 10px;
+}
+
+.ContentTypeText.Description{
+    font-size: 0.8rem;
+    font-family: "Gordita Light";
+}
+
+.ContentText .Title {
+    font-size: 1.6rem;
+}
+
+
+.FeaturedFullContent {
+    position: absolute;
+    bottom: 0;
+}
+
+.Clouds {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.RightTopCloud img, .LeftBottomCloud img{
+    width: 25vw;
+}
+
+.RightTopCloud {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.LeftBottomCloud {
+    position: absolute;
+    bottom: -15vh;
+    left: 0;
+    z-index: 0;
+}
+
+
+
+/* === FRONTPAGE SECTION END === */
+
+/* === GALLERY SECTION === */
+
+.GallerySection {
+    position: relative;
+    top: 10vh;
+    border-radius: 20px;
+    width: 90vw;
+    height: 80vh;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.GalleryContent {
+    position: absolute;
+}
+
+
+
+.SecondaryTitleDiv {
+    position: relative;
+    top: 15vh;
+    text-align: center;
+    background-color: var(--CloudRedDark);
+    width: 50vw;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+.SecondaryTitle {
+    padding: 3vh;
+}
+
+/* Setting widths and heights of the carousel */
+.carousel{
+    width: 63.5vw;
+    height: 64vh;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--normalBoxShadow);
+    z-index: 300;
+}
+
+/* Setting traits of the 5 buttons */
+.-button{
+    position: absolute;
+    z-index: 100;
+    border: none;
+    color: var(--BackgroundBlueGrey);
+    font-size: 1.4rem;
+    cursor: pointer;
+    background: var(--CloudRedHighlight);
+    background-size: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #00000064;
+    opacity: 0.5;
+    transition: 0.5s;
+    margin-top: 20%;
+}
+
+/* hover animations for the buttons */
+.-button:hover{
+    color: var(--white);
+    background: var(--LogoMainRed);
+    opacity: 1;
+}
+
+.-button:active {
+    box-shadow: var(--clickedButtonShadow);
+}
+
+/* Spacing the buttons out */
+.prev{
+    left: 3vw;
+}
+
+.next {
+    right: 3vw;
+}
+
+/* Making sure the slides are directly next to each other */
+.radioandslides {
+    width: 500%;
+    height: 64vh;
+    display: flex;
+    z-index: 50;
+}
+
+/* Making sure the original radio buttons don't show */
+.radioandslides input{
+    display: none;
+}
+
+/* Setting traits of the slides. Depends on how many slides there are */
+.slide {
+    width: 20%;
+    transition: 2s;
+    position: relative;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 50%, #000 100%);
+    z-index: 60;
+}
+
+.slide img{
+    width: 100%;
+    filter: brightness(50%);
+    object-fit: cover;
+    
+}
+
+/* Creating the manual navigation */
+
+.ManualNavigation {
+    position: absolute;
+    width: 60%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Setting traits of the radio buttons on the bottom */
+.Manualbtn {
+    border: 3px solid #ed6ea0;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+/* Spacing the radio buttons out */
+.Manualbtn:not(:last-child) {
+    margin-right: 30px;
+}
+
+/* Setting hover animations for the radio buttons (filling them in) */
+.Manualbtn:hover {
+    background: var(--pinkHighlight);
+}
+
+/* If the radio buttons are checked, then it moves right until it reaches the desired image */
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -60%;
+}
+
+#radio5:checked ~ .first {
+    margin-left: -80%;
+}
+
+/*  */
+.AutoNavigation {
+    position: absolute;
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    margin-top: 460px;
+}
+
+.AutoNavigation div{
+    border: 3px solid var(--pinkHighlight);
+    padding: 5px;
+    border-radius: 20px;
+    transition: 1s;
+}
+
+.AutoNavigation div:not(:last-child) {
+    margin-right: 30px;
+}
+
+#radio1:checked ~ .AutoNavigation .Autobtn1 {
+    background: var(--pinkHighlight)
+}
+
+#radio2:checked ~ .AutoNavigation .Autobtn2 {
+    background: var(--pinkHighlight)
+}
+
+#radio3:checked ~ .AutoNavigation .Autobtn3 {
+    background: var(--pinkHighlight)
+}
+
+#radio4:checked ~ .AutoNavigation .Autobtn4 {
+    background: var(--pinkHighlight)
+}
+
+#radio5:checked ~ .AutoNavigation .Autobtn5 {
+    background: var(--pinkHighlight)
+}
+
+
+.SlideFullContent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.StoryOrderedList {
+    list-style: none;
+    counter-reset: SOCounter;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.StoryOrderedListItem {
+    border-bottom: 1px solid var(--bgColourSeven);
+    counter-increment: SOCounter;
+    display: flex;
+    float: left;
+    margin-bottom: 0;
+    /* padding: 3vh 0; */
+    height: calc(100%/6);
+    position: relative;
+    width: 100%;
+}
+
+
+.StoryOrderedListItem.lastList {
+    border: none;
+} 
+
+
+.StoryOrderedListText.firstList {
+    top: 0;
+}
+
+
+.StoryOrderedListItem::before{
+    color: var(--white);
+    font-size: 2rem;
+    line-height: 1;
+    content: counter(SOCounter) ". ";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 1vw;
+    top: 0;
+    height: 100%;
+}
+
+.StoryOrderedListText {
+    font-size: 0.8rem;
+    margin-left: 4vw;
+    line-height: 1.2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* === GALLERY SECTION END === */
+
+/* === MAIN ARTICLE SECTION START === */
+
+.MainArticleSection {
+    position: absolute;
+    left: 65vw;
+    border-radius: 20px;
+    background-color: var(--CloudRedDark);
+    width: 25vw;
+    height: 64vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ArticleBoxOne, .ArticleBoxTwo {
+    width: 100%;
+    height: 40%;
+}
+
+.ArticlePicture {
+    position: absolute;
+    border-radius: 20px;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+
+/* === MAIN ARTICLE SECTION START === */
+
+.ASD {
+    top: 5vh;
+}
+
+.ArticleSection {
+    position: relative;
+    top: 7.5vh;
+    border-radius: 20px;
+    background-color: var(--bgColourSeven);
+    width: 90vw;
+    height: 80vh;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.ArticleContent {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "ArticleOne Article2 Article3"
+    "ArticleOne Article5 Article6"
+    ;
+    row-gap: 2.5vh;
+    column-gap: 2.5vh;
+}
+
+.FullArticle {
+    position: relative;
+    background-color: var(--BackgroundBlueGrey);
+    /* border-radius: 20px; */
+}
+
+.ArticleOne { 
+    grid-area: ArticleOne;
+}
+
+.ArticleTwo { 
+    grid-area: Article2;
+}
+
+.ArticleThree { 
+    grid-area: Article3;
+}
+
+.ArticleFive { 
+    grid-area: Article5;
+}
+
+.ArticleSix { 
+    grid-area: Article6;
+}
+
+.ArticleContent > .FullArticle:nth-child(5n + 2), .ArticleContent > .FullArticle:nth-child(5n + 4) {
+    margin-right: -1.25vh;
+}
+  
+.ArticleContent > .FullArticle:nth-child(5n + 3), .ArticleContent > .FullArticle:nth-child(5n + 5) {
+    margin-left: -1.25vh;
+}
+
+.ArticlePic {
+    position: absolute;
+    border-radius: 20px;
+    width: 100%;
+    height: 50%;
+    will-change: transform;
+    transition: 0.5s ease;
+}
+
+.ArticleImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+    /* border-radius: 20px; */
+    filter: brightness(60%);
+}
+
+.ArticleContents {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 50%;
+    outline: 3px solid var(--bgColourSeven);
+    /* outline-offset: -1.5px; */
+}
+
+.PopArtLabel .ContentTypeLabel {
+    position: absolute;
+    bottom: 7.5%;
+    left: -2.5%;
+    
+}
+
+/* === MAIN ARTICLE SECTION END === */
+
+/* === INSPIRATIONAL WOMEN SECTION START === */
+
+
+.IWD {
+    top: 15vh;
+}
+
+.IW {
+    margin: 0;
+}
+
+.IWInfoText {
+    padding: 0 0 2.5vh 0;
+}
+
+.CarouselWrapper {
+    position: relative;
+    top: 22.5vh;
+    width: 90vw;
+    height: 60vh;
+    margin: 0 auto;
+    /* padding: 3vw 1vw; */
+    border-radius: 20px;
+    background-color: var(--BackgroundBlueGrey);
+}
+
+.CarouselList {
+    background: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    list-style: none;
+    overflow: auto hidden;
+    border-radius: 20px;
+    height: 95%;
+}
+
+.CarouselList::-webkit-scrollbar {
+    height: 15px;
+}
+
+.CarouselList::-webkit-scrollbar-thumb {
+    background: var(--CloudRedDark);
+}
+
+.CarouselList::-webkit-scrollbar-thumb:hover {
+    background: var(--CloudRedDarker);
+}
+
+.CarouselList::-webkit-scrollbar-track {
+    background: var(--DarkBackgroundBlue);
+    transition: 0.5s;
+}
+
+.CarouselList::-webkit-scrollbar-track:hover {
+    background: var(--DarkBackgroundBlue);
+}
+
+.CarouselLabel .ContentTypeLabel{
+    position: relative;
+    top: -10vh;
+    left: -1vw;
+}
+
+.CarouselItem {
+    width: 28%;
+    flex-shrink: 0;
+    align-self: stretch;
+    scroll-snap-align: start;
+    display: list-item;
+    margin: 0 2.5vh;
+    border-radius: 20px;
+    height: 100%;
+}
+
+.CarouselItem.itemStart {
+    margin: 0 2.5vh 0 0;
+}
+
+.CarouselImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+    filter: brightness(60%);
+}
+/* === INSPIRATIONAL WOMEN SECTION END === */
+
+
+/* === ABOUT US SECTION START === */
+
+.Spacer {
+    aspect-ratio: 960/300;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    top: 45vh;
+    z-index: 10;
+}
+
+.SeperatorLayer {
+    background-image: url(../Includes/MediaNEAGraphics/Images/layered-waves-haikei.svg);
+}
+
+.AboutUsSection {
+    position: relative;
+    top: 0vh;
+    background-color: var(--DarkBackgroundBlue);
+    width: 100%;
+    height: 120vh;
+}
+
+.BalloonSection {
+    position: relative;
+    height: 50%;
+}
+
+.AboutUsClouds {
+    position: relative;
+    height: calc(100% - 11vw);
+}
+
+.BalloonImg {
+    position: absolute;
+    width: 10vw;
+    margin: 0 auto;
+}
+
+.CloudOneImg, .CloudTwoImg, .CloudThreeImg {
+    width: 20vw;
+}
+
+.CloudOneImg {
+    width: 30vw;
+    filter: contrast(70%) brightness(70%);
+}
+
+
+.CloudOne {
+    position: absolute;
+    left: 15%;
+    top: 20%;
+    
+}
+
+.CloudTwo {
+    position: absolute;
+    left: 75%;
+    top: 40%;
+}
+
+.CloudThree {
+    position: absolute;
+    width: 15vw;
+    top: 30%;
+    left: 30%;
+}
+
+.TextSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.AboutUsFullContent {
+    position: relative;
+    border-radius: 20px;
+    background-color: var(--CloudRedDark);
+    width: 60vw;
+    height: 60vh;
+    overflow: hidden;
+}
+
+.SocialFullContent {
+    position: relative;
+    border-radius: 20px;
+    background-color: var(--CloudRedDark);
+    width: 30vw;
+    height: 60vh;
+    overflow: hidden;
+}
+

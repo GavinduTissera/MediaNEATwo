@@ -1,0 +1,129 @@
+
+
+body {
+    background: linear-gradient(var(--BackgroundBlueGreyDark), var(--bgColourSeven));
+    overflow-x: hidden;
+}   
+
+.TimelineFullContainer {
+    padding: 3vh 0;
+}
+
+.SecondaryTitleDiv {
+    top: 0;
+    text-align: center;
+}
+
+.TitleText {
+    margin: 0;
+}
+
+.SecondaryText {
+    padding-bottom: 3vh;
+}
+
+.timeline {
+    width: 90%;
+    margin: 15vh auto;
+    position: relative;
+}
+
+.timelineContainer {
+    margin: 10vh 0 0;
+    position: relative;
+    width: 42.5%;
+}
+
+.TimelineProgContainer {
+    position: relative;
+}
+
+.BalloonTimeline {
+    position: fixed;
+    z-index: 100;
+    width: 90%;
+    margin:  0 auto;
+    height: 12.5%;
+}
+
+.redBalloonTimeline {
+    width: 12.5%;
+    position: absolute;
+    left: 43.55%;
+}
+
+.TimelineProgress {
+    width: 2px;
+    background-color: #2c414e5e;
+    position: absolute;
+    top: 0vh;
+    left: 50%;
+    bottom: 0;
+    overflow: hidden;
+    transform: translateX(-50%);
+}
+
+.ProgressBar {
+    width: 100%;
+    height: 20%;
+    background-color: #A618275e;
+}
+
+.left {
+    text-align: left;
+    left: 0;
+}
+
+.right {
+    text-align: right;
+    left: 57.5%;
+}
+
+.right .timelineContent {
+    box-shadow: 3px 5px 10px #1d1e1f5b;
+    transform: translateX(200%);
+}
+
+.left .timelineContent {
+    box-shadow: -3px 5px 10px #2226295b;
+    transform: translateX(-200%);
+}
+
+.timelineContent {
+    opacity: 0;
+    background-color: var(--BackgroundBlueGreyDark) ;
+    transition: transform .7s, opacity .7s;
+    border-radius: 20px;
+}
+
+.timelineContainer.active .timelineContent {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.timelineThumbnailImg {
+    width: 100%;
+    border-radius: 20px 20px 0 0 ;
+}
+
+.ContentTypeText.Title {
+    font-size: 1.1rem;
+    padding: 2vh 2vh 0;
+}
+
+.ContentTypeText.Description {
+    padding: 0 2vh 2vh;
+}
+
+.TimelineCloud {
+    width: 120%;
+    position: absolute;
+    z-index: -1;
+    top: 27vh;
+    left: -6vh;
+}
+
+.CloudPlatform {
+    width: 100%;
+}
+
