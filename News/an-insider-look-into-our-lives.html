@@ -36,17 +36,19 @@
             <div class="VideoContainer">
                 <div class="VideoDiv">
                     <div class="TitleName">
-                        <h2 class="ContentTypeText TitleVideo">An insider look into "Our Lives" with director Amirah</h2>
+                        <h2 class="ContentTypeText TitleVideo">An insider look into "Our Lives" with director Amirah
+                        </h2>
                     </div>
                     <video class="videoPlayer" controls
                         poster="../Includes/MediaNEAGraphics/Images/ourliveslogodraft.png">
                         <source src="../finishedVideos/Among us walkthrough finished 2.mp4" type="video/mp4">
                     </video>
                     <div class="VideoControls">
-                        <div class="PlayBar">
-                            <div class="PlayColour"></div>
-                        </div>
                         <div class="Buttons">
+                            <div class="PlayBar">
+                                <div class="PlayColour"></div>
+                            </div>
+
                             <button class="playPause"></button>
                         </div>
                     </div>
@@ -123,6 +125,7 @@
         var video = document.querySelector(".videoPlayer")
         var videoControls = document.querySelector(".VideoControls")
         var playButton = document.querySelector(".playPause")
+        var playColour = document.querySelector(".PlayColour")
         const videoWorks = !!document.createElement('video').canPlayType;
         if (videoWorks) {
             video.controls = false;
@@ -134,10 +137,21 @@
         function togglePlay() {
             if (video.paused || video.ended) {
                 video.play()
+                console.log(playButton)
+                console.log(playButton.classList)
+                playButton.classList.remove("play")
+                playButton.classList.add("pause")
             } else {
                 video.pause()
+                playButton.classList.remove("pause")
+                playButton.classList.add("play")
             }
         }
+
+        video.addEventListener("timeupdate", function() {
+            var timepos = video.currentTime / video.duration
+            playColour.style.width = timepos * 100 + "%"
+        })
     </script>
 </body>
 

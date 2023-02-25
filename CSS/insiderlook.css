@@ -26,6 +26,15 @@ main {
 
 .VideoDiv {
     position: relative;
+    overflow: hidden;
+}
+
+.VideoDiv:hover .VideoControls, .VideoDiv:hover .TitleName{
+    transform: translateX(0);
+}
+
+.VideoDiv:hover .PlayBar {
+    width: 100%;
 }
 
 .videoPlayer {
@@ -41,7 +50,9 @@ main {
     flex-wrap: wrap;
     background: linear-gradient(#00122077,#2c414e00);
     height: 10vh;
-    border-radius:20px 20px 0 0;
+    transform: translateY(-100%);
+    transition: 0.5s;
+    border-radius: 20px 20px 0 0 ;
 }
 
 .TitleVideo {
@@ -58,12 +69,63 @@ main {
     flex-wrap: wrap;
     background: linear-gradient(#2c414e00,#2c414ebe);
     height: 10vh;
+    transform: translateY(calc( 100% - 5px));
     border-radius: 0 0 20px 20px;
+    transition: 0.5s;
 }
 
 .ContentTypeText.Title {
     font-size: 1.7rem;
     padding: 2.5vh 0 1vh;
+}
+
+.Buttons {
+    width: 100%;
+    position: relative;
+}
+
+.Buttons .playPause {
+    background: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    height: 100%;
+    position: absolute;
+    left: 4%;
+
+}
+
+.Buttons .playPause::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f04b";
+    line-height: 50px;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+}
+
+.Buttons .playPause.play::before {
+    content: "\f04b";
+}
+
+.Buttons .playPause.pause::before {
+    content: "\f04c";
+}
+
+.PlayBar {
+    height: 5px;
+    top: 0;
+    left: 0;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    transition: 0.5s;
+}
+
+.PlayColour {
+    height: 5px;
+    background-color: var(--CloudRedDark);
+    border-radius: 20px;
 }
 
 
