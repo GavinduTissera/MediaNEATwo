@@ -6,6 +6,7 @@ main {
 }
 
 .fullContainer {
+    height: calc(100vh - 65px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,10 +28,15 @@ main {
 /* VIEW MORE SECTION */
 
 .ViewMoreSection {
-    width: 25%;
+    width: 30%;
+    height: 70%;
     position: absolute;
-    right: 5vw;
-    top: 0;
+    right: 2.5%;
+    top: 10%;
+}
+
+.WatchMoreVideo {
+    padding: 2vh 0;
 }
 
 .ViewMoreTitle {
@@ -41,7 +47,6 @@ main {
 
 .ViewMoreContent {
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
 }
@@ -51,8 +56,23 @@ main {
     align-content: center;
     justify-content: center;
     flex-direction: row;
+    position: relative;
 }
 
-.VideoThumbnailImg {
-    width: 70%;
+.VideoThumbnail {
+    width: 25vw;
 }
+
+.TitleSmall {
+    font-size: 1rem;
+    padding-left: 1vw;
+}
+
+.Date {
+    font-size: 0.6rem;
+    padding-left: 1vw;
+    color: var(--BackgroundBlueGrey);
+    position: absolute;
+    bottom: 1vh;
+}
+
