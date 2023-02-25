@@ -34,9 +34,23 @@
     <main>
         <div class="fullContainer">
             <div class="VideoContainer">
-                <video class="videoPlayer" controls poster="../Includes/MediaNEAGraphics/Images/ourliveslogodraft.png">
-                    <source src="../finishedVideos/Among us walkthrough finished 2.mp4" type="video/mp4">
-                </video>
+                <div class="VideoDiv">
+                    <div class="TitleName">
+                        <h2 class="ContentTypeText TitleVideo">An insider look into "Our Lives" with director Amirah</h2>
+                    </div>
+                    <video class="videoPlayer" controls
+                        poster="../Includes/MediaNEAGraphics/Images/ourliveslogodraft.png">
+                        <source src="../finishedVideos/Among us walkthrough finished 2.mp4" type="video/mp4">
+                    </video>
+                    <div class="VideoControls">
+                        <div class="PlayBar">
+                            <div class="PlayColour"></div>
+                        </div>
+                        <div class="Buttons">
+                            <button class="playPause"></button>
+                        </div>
+                    </div>
+                </div>
                 <div class="VideoTitleDescription">
                     <h2 class="ContentTypeText Title">An insider look into "Our Lives" with director Amirah</h2>
                     <h3 class="ContentTypeText Description">Award-winning director Amirah goes through the process of
@@ -51,11 +65,13 @@
                             <a href="../index.html">
                                 <div class="VideoViewerTitle">
                                     <div class="VideoThumbnail">
-                                        <img src="../Includes/MediaNEAGraphics/GalleryPictures/basscloseup.png" alt="" class="VideoThumbnailImg">
+                                        <img src="../Includes/MediaNEAGraphics/GalleryPictures/basscloseup.png" alt=""
+                                            class="VideoThumbnailImg">
                                     </div>
                                     <div class="VideoVMTitle">
-                                        <h2 class="ContentTypeText TitleSmall">Hollywood's best costume designer</h2>
-                                        <h4 class="ContentTypeText Date">25 January 2023</h4>
+                                        <h2 class="ContentTypeText TitleSmall">The best costume designer in Hollywood
+                                        </h2>
+                                        <h4 class="ContentTypeText Date">11 February 2023</h4>
                                     </div>
                                 </div>
                             </a>
@@ -67,11 +83,13 @@
                             <a href="../index.html">
                                 <div class="VideoViewerTitle">
                                     <div class="VideoThumbnail">
-                                        <img src="../Includes/MediaNEAGraphics/GalleryPictures/basscloseup.png" alt="" class="VideoThumbnailImg">
+                                        <img src="../Includes/MediaNEAGraphics/GalleryPictures/basscloseup.png" alt=""
+                                            class="VideoThumbnailImg">
                                     </div>
                                     <div class="VideoVMTitle">
-                                        <h2 class="ContentTypeText TitleSmall">This is some small text for this video</h2>
-                                        <h4 class="ContentTypeText Date">25 January 2023</h4>
+                                        <h2 class="ContentTypeText TitleSmall">The all-women film crew showing the
+                                            effects of climate change</h2>
+                                        <h4 class="ContentTypeText Date">19 January 2023</h4>
                                     </div>
                                 </div>
                             </a>
@@ -83,11 +101,13 @@
                             <a href="../index.html">
                                 <div class="VideoViewerTitle">
                                     <div class="VideoThumbnail">
-                                        <img src="../Includes/MediaNEAGraphics/GalleryPictures/basscloseup.png" alt="" class="VideoThumbnailImg">
+                                        <img src="../Includes/MediaNEAGraphics/GalleryPictures/basscloseup.png" alt=""
+                                            class="VideoThumbnailImg">
                                     </div>
                                     <div class="VideoVMTitle">
-                                        <h2 class="ContentTypeText TitleSmall">This is some small text for this video</h2>
-                                        <h4 class="ContentTypeText Date">25 January 2023</h4>
+                                        <h2 class="ContentTypeText TitleSmall">How do you make your mark as a female
+                                            director?</h2>
+                                        <h4 class="ContentTypeText Date">27 December 2022</h4>
                                     </div>
                                 </div>
                             </a>
@@ -99,6 +119,26 @@
         </div>
 
     </main>
+    <script>
+        var video = document.querySelector(".videoPlayer")
+        var videoControls = document.querySelector(".VideoControls")
+        var playButton = document.querySelector(".playPause")
+        const videoWorks = !!document.createElement('video').canPlayType;
+        if (videoWorks) {
+            video.controls = false;
+            videoControls.classList.remove('hidden');
+        }
+
+        playButton.addEventListener("click", togglePlay)
+        //functions
+        function togglePlay() {
+            if (video.paused || video.ended) {
+                video.play()
+            } else {
+                video.pause()
+            }
+        }
+    </script>
 </body>
 
 </html>
