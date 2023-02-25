@@ -48,8 +48,17 @@
                             <div class="PlayBar">
                                 <div class="PlayColour"></div>
                             </div>
-
                             <button class="playPause"></button>
+                            <div class="VideoTime">
+                                <span class="currentTime">0:00</span> / <span class="totalTime">0:00</span>
+                            </div>
+                            <div class="VolumeSelector">
+                                <input type="range" class="volume" min="0" max="1" step="0.01" value="1">
+                                <div class="volumeInputSliderDiv">
+                                    <div class="volumeInputSlider"></div>
+                                </div>
+                                <button class="volumeMuteUnmute"></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -126,6 +135,12 @@
         var videoControls = document.querySelector(".VideoControls")
         var playButton = document.querySelector(".playPause")
         var playColour = document.querySelector(".PlayColour")
+        var progressBar = document.querySelector(".PlayBar")
+        var volumeController = document.querySelector(".volume")
+        var volumeProgress = document.querySelector(".volumeInputSlider")
+        var volumeIcon = document.querySelector(".volumeMuteUnmute")
+        var currentTimeElement = document.querySelector(".currentTime")
+        var totalTimeElement = document.querySelector(".totalTime")
         const videoWorks = !!document.createElement('video').canPlayType;
         if (videoWorks) {
             video.controls = false;
@@ -148,9 +163,72 @@
             }
         }
 
-        video.addEventListener("timeupdate", function() {
+        video.addEventListener("timeupdate", function () {
             var timepos = video.currentTime / video.duration
             playColour.style.width = timepos * 100 + "%"
+            if (video.ended) {
+                playButton.classList.remove("pause")
+                playButton.classList.add("play")
+            }
+            let currentMinutes = Math.floor(video.currentTime / 60)
+            let currentSeconds = Math.floor(video.currentTime - currentMinutes * 60)
+            let totalMinutes = Math.floor(video.duration / 60)
+            let totalSeconds = Math.floor(video.duration - totalMinutes * 60)
+            currentTimeElement.innerHTML = `${currentMinutes}:${currentSeconds < 10 ? '0' + currentSeconds : currentSeconds}`
+            totalTimeElement.innerHTML = `${totalMinutes}:${totalSeconds < 10 ? '0' + totalSeconds : totalSeconds}`
+        })
+
+        video.addEventListener("click", function () {
+            if (video.paused || video.ended) {
+                video.play()
+                console.log(playButton)
+                console.log(playButton.classList)
+                playButton.classList.remove("play")
+                playButton.classList.add("pause")
+            } else {
+                video.pause()
+                playButton.classList.remove("pause")
+                playButton.classList.add("play")
+            }
+        })
+
+        //change progress on click
+        progressBar.addEventListener("click", (e) => {
+            const progressTime = (e.offsetX / progressBar.offsetWidth) * video.duration
+            video.currentTime = progressTime
+        })
+
+        volumeController.addEventListener("input", function () {
+            var volumeValue = volumeController.value
+            volumeProgress.style.width = (volumeValue * 100) + "%"
+            video.volume = volumeValue
+            if (volumeValue == 0) {
+                volumeIcon.classList.remove("volumeHigh", "volumeLow")
+                volumeIcon.classList.add("volumeMuted")
+            } else if (volumeValue < 0.5) {
+                volumeIcon.classList.remove("volumeHigh", "volumeMuted")
+                volumeIcon.classList.add("volumeLow")
+            } else {
+                volumeIcon.classList.remove("volumeLow", "volumeMuted")
+                volumeIcon.classList.add("volumeHigh")
+            }
+        })
+
+        volumeIcon.addEventListener("click", function () {
+            var volumeValue = volumeController.value
+            if (volumeValue == 0) {
+                volumeController.value = 1
+                video.volume = 1
+                volumeProgress.style.width = "100%"
+                volumeIcon.classList.remove("volumeLow", "volumeMuted")
+                volumeIcon.classList.add("volumeHigh")
+            } else {
+                volumeController.value = 0
+                video.volume = 0
+                volumeProgress.style.width = "0%"
+                volumeIcon.classList.remove("volumeHigh", "volumeLow")
+                volumeIcon.classList.add("volumeMuted")
+            }
         })
     </script>
 </body>

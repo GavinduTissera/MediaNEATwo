@@ -34,7 +34,14 @@ main {
 }
 
 .VideoDiv:hover .PlayBar {
+    position: absolute;
     width: 100%;
+    height: 10px;
+    top: 0;
+}
+
+.VideoDiv:hover .PlayColour {
+    height: 10px;
 }
 
 .videoPlayer {
@@ -48,7 +55,7 @@ main {
     top: 0;
     width: 100%;
     flex-wrap: wrap;
-    background: linear-gradient(#00122077,#2c414e00);
+    background: linear-gradient(#2c414ebe,#2c414e00);
     height: 10vh;
     transform: translateY(-100%);
     transition: 0.5s;
@@ -84,16 +91,48 @@ main {
     position: relative;
 }
 
-.Buttons .playPause {
+
+.Buttons .playPause, .VolumeSelector .volumeMuteUnmute {
     background: none;
     border: 0;
     outline: 0;
     cursor: pointer;
-    height: 100%;
+    height: calc(100% - 10px);
+    bottom: 0;
+    width: 42px;
+}
+
+.Buttons .playPause {
     position: absolute;
     left: 4%;
-
 }
+
+.VolumeSelector .volumeMuteUnmute {
+    position: absolute;
+    right: 10%;
+}
+
+.VideoTime {
+    font-size: 0.8rem;
+    height: calc(100% - 10px);
+    bottom: 0;
+    position: absolute;
+    left: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.volume {
+    height: calc(100% - 10px);
+    bottom: 0;
+    position: absolute;
+    right: 16%;
+}
+
+
+
 
 .Buttons .playPause::before {
     font-family: "Font Awesome 5 Free";
@@ -113,12 +152,38 @@ main {
     content: "\f04c";
 }
 
+.VolumeSelector .volumeMuteUnmute::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f028";
+    line-height: 50px;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    float: left;
+
+}
+
+.VolumeSelector .volumeMuteUnmute.volumeHigh::before {
+    content: "\f028";
+}
+
+.VolumeSelector .volumeMuteUnmute.volumeLow::before {
+    content: "\f027";
+}
+
+.VolumeSelector .volumeMuteUnmute.volumeMuted::before {
+    content: "\f6a9";
+}
+
 .PlayBar {
     height: 5px;
     top: 0;
     left: 0;
     width: calc(100% - 40px);
     margin: 0 auto;
+    background-color: #2c414e4b;
+    border-radius: 20px;
     transition: 0.5s;
 }
 
@@ -126,10 +191,55 @@ main {
     height: 5px;
     background-color: var(--CloudRedDark);
     border-radius: 20px;
+    transition: 0.5s;
 }
 
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 8vw;
+    margin: 0;
+}
 
+input[type="range"]::-webkit-slider-runnable-track {
+    position: relative;
+    background: var(--CloudRedDark);
+    height: 5px;
+    border-radius: 20px;
+}
 
+.volumeInputSliderDiv {
+    position: absolute;
+    right: 16%;
+    width: 8vw;
+    height: calc(100% - 10px);
+    bottom: 0;
+    pointer-events: none;
+
+}
+
+.volumeInputSlider {
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    width: 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: white;
+    margin-top: -4.5px;
+}
 /* VIEW MORE SECTION */
 
 .ViewMoreSection {
