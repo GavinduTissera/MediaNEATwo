@@ -1,5 +1,3 @@
-
-
 body {
     background: linear-gradient(var(--BackgroundBlueGreyDark), var(--bgColourSeven));
     overflow-x: hidden;
@@ -81,18 +79,18 @@ body {
 
 .right .timelineContent {
     box-shadow: 3px 5px 10px #1d1e1f5b;
-    transform: translateX(200%);
+    transform: translateX(100%);
 }
 
 .left .timelineContent {
     box-shadow: -3px 5px 10px #2226295b;
-    transform: translateX(-200%);
+    transform: translateX(-100%);
 }
 
 .timelineContent {
     opacity: 0;
-    background-color: var(--BackgroundBlueGreyDark) ;
-    transition: transform .7s, opacity .7s;
+    background-color: var(--CloudRedDark) ;
+    transition: transform .8s, opacity .8s;
     border-radius: 20px;
 }
 
@@ -125,5 +123,6 @@ body {
 
 .CloudPlatform {
     width: 100%;
+    opacity: 80%;
 }
 
