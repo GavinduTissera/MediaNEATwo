@@ -52,6 +52,10 @@
                             <div class="VideoTime">
                                 <span class="currentTime">0:00</span> / <span class="totalTime">0:00</span>
                             </div>
+                            <div class="VideoSeekers">
+                                <div class="SeekLeft"><i class="fa-solid fa-rotate-left"></i></div>
+                                <div class="SeekRight"><i class="fa-solid fa-rotate-right"></i></div>
+                            </div>
                             <div class="VolumeSelector">
                                 <input type="range" class="volume" min="0" max="1" step="0.01" value="1">
                                 <div class="volumeInputSliderDiv">
@@ -59,6 +63,7 @@
                                 </div>
                                 <button class="volumeMuteUnmute"></button>
                             </div>
+                            <button class="FullscreenButton minimisedVideo"></button>
                         </div>
                     </div>
                 </div>
@@ -131,6 +136,7 @@
 
     </main>
     <script>
+        var videoDiv = document.querySelector(".VideoDiv")
         var video = document.querySelector(".videoPlayer")
         var videoControls = document.querySelector(".VideoControls")
         var playButton = document.querySelector(".playPause")
@@ -141,6 +147,11 @@
         var volumeIcon = document.querySelector(".volumeMuteUnmute")
         var currentTimeElement = document.querySelector(".currentTime")
         var totalTimeElement = document.querySelector(".totalTime")
+        var leftSeeker = document.querySelector(".SeekLeft")
+        var rightSeeker = document.querySelector(".SeekRight")
+        var FullscreenButton = document.querySelector(".FullscreenButton")
+
+
         const videoWorks = !!document.createElement('video').canPlayType;
         if (videoWorks) {
             video.controls = false;
@@ -163,6 +174,69 @@
             }
         }
 
+        video.addEventListener("click", function () {
+            if (video.paused || video.ended) {
+                video.play()
+                console.log(playButton)
+                console.log(playButton.classList)
+                playButton.classList.remove("play")
+                playButton.classList.add("pause")
+            } else {
+                video.pause()
+                playButton.classList.remove("pause")
+                playButton.classList.add("play")
+            }
+        })
+
+
+        if (document.activeElement = video) {
+            document.addEventListener('keyup', event => {
+                if (event.code === 'Space') {
+                    if (video.paused || video.ended) {
+                        video.play()
+                        console.log(playButton)
+                        console.log(playButton.classList)
+                        playButton.classList.remove("play")
+                        playButton.classList.add("pause")
+                    } else {
+                        video.pause()
+                        playButton.classList.remove("pause")
+                        playButton.classList.add("play")
+                    }
+                } else if (event.key === "ArrowLeft") {
+                    video.currentTime = video.currentTime - 5
+                } else if (event.key === "ArrowRight") {
+                    video.currentTime = video.currentTime + 5
+                } else if (event.key === "f" || event.key === "F") {
+                    if (FullscreenButton.classList.contains("minimisedVideo")) {
+                        videoDiv.requestFullscreen()
+                        FullscreenButton.classList.remove("minimisedVideo")
+                        FullscreenButton.classList.add("fullscreenVideo")
+                    } else {
+                        document.exitFullscreen()
+                        FullscreenButton.classList.remove("fullscreenVideo")
+                        FullscreenButton.classList.add("minimisedVideo")
+                    }
+                } else if (event.key === "m" || event.key === "M") {
+                    var volumeValue = volumeController.value
+                    if (volumeValue == 0) {
+                        volumeController.value = 1
+                        video.volume = 1
+                        volumeProgress.style.width = "100%"
+                        volumeIcon.classList.remove("volumeLow", "volumeMuted")
+                        volumeIcon.classList.add("volumeHigh")
+                    } else {
+                        volumeController.value = 0
+                        video.volume = 0
+                        volumeProgress.style.width = "0%"
+                        volumeIcon.classList.remove("volumeHigh", "volumeLow")
+                        volumeIcon.classList.add("volumeMuted")
+                    }
+                }
+            })
+        }
+
+
         video.addEventListener("timeupdate", function () {
             var timepos = video.currentTime / video.duration
             playColour.style.width = timepos * 100 + "%"
@@ -178,17 +252,15 @@
             totalTimeElement.innerHTML = `${totalMinutes}:${totalSeconds < 10 ? '0' + totalSeconds : totalSeconds}`
         })
 
-        video.addEventListener("click", function () {
-            if (video.paused || video.ended) {
-                video.play()
-                console.log(playButton)
-                console.log(playButton.classList)
-                playButton.classList.remove("play")
-                playButton.classList.add("pause")
+        FullscreenButton.addEventListener("click", function () {
+            if (FullscreenButton.classList.contains("minimisedVideo")) {
+                videoDiv.requestFullscreen()
+                FullscreenButton.classList.remove("minimisedVideo")
+                FullscreenButton.classList.add("fullscreenVideo")
             } else {
-                video.pause()
-                playButton.classList.remove("pause")
-                playButton.classList.add("play")
+                document.exitFullscreen()
+                FullscreenButton.classList.remove("fullscreenVideo")
+                FullscreenButton.classList.add("minimisedVideo")
             }
         })
 
@@ -229,6 +301,14 @@
                 volumeIcon.classList.remove("volumeHigh", "volumeLow")
                 volumeIcon.classList.add("volumeMuted")
             }
+        })
+
+        leftSeeker.addEventListener("click", function () {
+            video.currentTime = video.currentTime - 5
+        })
+
+        rightSeeker.addEventListener("click", function () {
+            video.currentTime = video.currentTime + 5
         })
     </script>
 </body>

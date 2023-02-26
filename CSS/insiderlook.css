@@ -10,6 +10,12 @@ main {
     position: relative;
 }
 
+button {
+    background: none;
+    border: 0;
+    outline: 0;
+}
+
 .fullContainer {
     height: calc(100vh - 65px);
     display: flex;
@@ -92,7 +98,7 @@ main {
 }
 
 
-.Buttons .playPause, .VolumeSelector .volumeMuteUnmute {
+.Buttons .playPause, .VolumeSelector .volumeMuteUnmute, .FullscreenButton{
     background: none;
     border: 0;
     outline: 0;
@@ -112,6 +118,11 @@ main {
     right: 10%;
 }
 
+.FullscreenButton {
+    position: absolute;
+    right: 4%;
+}
+
 .VideoTime {
     font-size: 0.8rem;
     height: calc(100% - 10px);
@@ -123,12 +134,29 @@ main {
     justify-content: center;
 }
 
+.VideoSeekers {
+    font-size: 1.5rem;
+    height: calc(100% - 10px);
+    bottom: 0;
+    position: absolute;
+    left: 22%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.SeekLeft, .SeekRight {
+    padding: 0 1vh;
+    cursor: pointer;
+}
+
 
 .volume {
     height: calc(100% - 10px);
     bottom: 0;
     position: absolute;
-    right: 16%;
+    right: 18%;
 }
 
 
@@ -176,6 +204,25 @@ main {
     content: "\f6a9";
 }
 
+.FullscreenButton::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f065";
+    line-height: 50px;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    float: left;
+}
+
+.FullscreenButton.minimisedVideo::before {
+    content: "\f065";
+}
+
+.FullscreenButton.fullscreenVideo::before {
+    content: "\f066";
+}
+
 .PlayBar {
     height: 5px;
     top: 0;
@@ -206,13 +253,13 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-runnable-track {
     position: relative;
     background: var(--CloudRedDark);
-    height: 5px;
+    height: 10px;
     border-radius: 20px;
 }
 
 .volumeInputSliderDiv {
     position: absolute;
-    right: 16%;
+    right: 18%;
     width: 8vw;
     height: calc(100% - 10px);
     bottom: 0;
@@ -221,7 +268,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 .volumeInputSlider {
-    height: 5px;
+    height: 10px;
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
     position: relative;
@@ -234,11 +281,11 @@ input[type="range"]::-webkit-slider-runnable-track {
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     background-color: white;
-    margin-top: -4.5px;
+    margin-top: -4px;
 }
 /* VIEW MORE SECTION */
 
