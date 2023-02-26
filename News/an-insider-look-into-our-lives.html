@@ -252,6 +252,25 @@
             totalTimeElement.innerHTML = `${totalMinutes}:${totalSeconds < 10 ? '0' + totalSeconds : totalSeconds}`
         })
 
+        videoDiv.addEventListener("mouseover", function() {
+            videoDiv.classList.add("hovering")
+        })
+
+        videoDiv.addEventListener("mouseout", function() {
+            videoDiv.classList.remove("hovering")
+        })
+
+        var timeout = function() {
+            videoDiv.classList.remove("hovering")
+        }
+        var mouseStillTimer = setTimeout(timeout, 2000)
+
+        video.onmousemove = function() {
+            clearTimeout(mouseStillTimer)
+            videoDiv.classList.add("hovering")
+            mouseStillTimer = setTimeout(timeout, 2000)
+        }
+
         FullscreenButton.addEventListener("click", function () {
             if (FullscreenButton.classList.contains("minimisedVideo")) {
                 videoDiv.requestFullscreen()
@@ -264,6 +283,15 @@
             }
         })
 
+        var isProgressMouseDown = false
+        progressBar.onmousedown = function () { isProgressMouseDown = true };
+        document.onmouseup = function () { isProgressMouseDown = false };
+        progressBar.onmousemove = (e) => {
+            if (isProgressMouseDown) {
+                const progressTime = (e.offsetX / progressBar.offsetWidth) * video.duration
+                video.currentTime = progressTime
+            }
+        };
         //change progress on click
         progressBar.addEventListener("click", (e) => {
             const progressTime = (e.offsetX / progressBar.offsetWidth) * video.duration
