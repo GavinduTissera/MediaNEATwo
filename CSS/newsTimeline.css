@@ -89,7 +89,7 @@ body {
 
 .timelineContent {
     opacity: 0;
-    background-color: var(--CloudRedDark) ;
+    background: var(--CloudRedGradient);
     transition: transform .8s, opacity .8s;
     border-radius: 20px;
 }

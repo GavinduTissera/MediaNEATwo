@@ -37,6 +37,9 @@ button {
 .VideoDiv {
     position: relative;
     overflow: hidden;
+    border-radius: 20px;
+    box-shadow: -1vw -1vw 16px #374E5C7c, 1vw 1vw 16px #2c414e7c;
+    
 }
 
 .VideoDiv.hovering .VideoControls, .VideoDiv.hovering .TitleName{
@@ -242,7 +245,7 @@ button {
 
 .PlayColour {
     height: 5px;
-    background-color: var(--CloudRedDark);
+    background: var(--CloudRedGradient);
     border-radius: 20px;
     transition: 0.5s;
 }
@@ -258,7 +261,7 @@ input[type="range"] {
 
 input[type="range"]::-webkit-slider-runnable-track {
     position: relative;
-    background: var(--CloudRedDark);
+    background: var(--CloudRedGradient);
     height: 10px;
     border-radius: 20px;
 }
@@ -383,6 +386,14 @@ input[type="range"]::-webkit-slider-thumb {
     }
 }
 
+@keyframes ButtonSpin {
+    0% {
+        rotate: 0deg;
+    } 100% {
+        rotate: 720deg;
+    }
+}
+
 .VideoOtherInfo {
     width: 100%;
     position: relative;
@@ -396,9 +407,9 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .SeperateDetailSection {
-    width: 35%;
+    width: 40%;
     position: absolute;
-    left: 65%;  
+    left: 60%;  
 }
 
 .CloudBase {
@@ -429,20 +440,39 @@ input[type="range"]::-webkit-slider-thumb {
     align-items: center;
     justify-content: space-evenly;
     font-size: 1.5rem;
-    margin: 1vh;
 }
 
 .ThumbsSection button{
     padding: 2vh;
-    background-color: var(--CloudRedDark);
     border-radius: 50%;
+    background: linear-gradient(145deg, #951623, #b21a2a);
+    box-shadow: -0.2vw -0.2vw 16px #374E5C7c, 0.2vw 0.2vw 16px #2c414e7c;
+
 }
 
-.ThumbsSection button:hover {
+.ThumbsSection .ThumbsUpSection:hover, .ThumbsSection .ThumbsDownSection:hover, .ThumbsSection .ShareButton:hover .fa-share {
     animation: ButtonHoverTilt 0.5s;
+}
+
+.ThumbsSection button.clicked {
+    animation: ButtonSpin 1s;
 }
 
 .fa-thumbs-up, .fa-thumbs-down, .fa-share {
     font-size: 1.5rem;
     color: white;
+}
+
+.ThumbsSection .ShareButton {
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ShareText {
+    font-family: "Gordita Bold";
+    color: white;
+    padding: 0 2vh;
+    font-size: 1.1rem;
 }

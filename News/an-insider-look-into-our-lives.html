@@ -79,9 +79,8 @@
                             <h4 class="ContentTypeText DateBig">Published: 26 February 2023</h4>
                         </div>
                         <div class="SeperateDetailSection">
-                            
+
                             <div class="VideoRatingSection">
-                                <div class="RatingHeader">Rate and Share!</div>
                                 <div class="ThumbsSection">
                                     <button class="ThumbsUpSection">
                                         <i class="fa-regular fa-thumbs-up"></i>
@@ -92,7 +91,8 @@
                                         <i class="fa-solid fa-thumbs-down hide"></i>
                                     </button>
                                     <button class="ShareButton">
-                                        <i class="fa-solid fa-share"></i>                                 
+                                        <i class="fa-solid fa-share"></i>
+                                        <div class="ShareText">Share!</div>
                                     </button>
                                 </div>
                             </div>
@@ -165,7 +165,52 @@
     </main>
     <script src="../Javascript/videoPlayer.js"></script>
     <script>
-        
+        var ThumbsUpRegular = document.querySelector(".fa-regular.fa-thumbs-up")
+        var ThumbsUpSolid = document.querySelector(".fa-solid.fa-thumbs-up")
+        var ThumbsDownRegular = document.querySelector(".fa-regular.fa-thumbs-down")
+        var ThumbsDownSolid = document.querySelector(".fa-solid.fa-thumbs-down")
+        var ThumbsUpButton = document.querySelector(".ThumbsUpSection")
+        var ThumbsDownButton = document.querySelector(".ThumbsDownSection")
+
+        ThumbsUpButton.addEventListener("click", function () {
+            ThumbsUpButton.classList.add("clicked")
+            clickRemove = setTimeout(() => {
+                ThumbsUpButton.classList.remove("clicked")
+            }, 1000);
+            if (ThumbsUpRegular.classList.contains("hide")) {
+                iconSwitch = setTimeout(() => {
+                    ThumbsUpRegular.classList.remove("hide")
+                    ThumbsUpSolid.classList.add("hide")
+                }, 500);
+            } else {
+                iconSwitch = setTimeout(() => {
+                    ThumbsUpRegular.classList.add("hide")
+                    ThumbsUpSolid.classList.remove("hide")
+                    ThumbsDownRegular.classList.remove("hide")
+                    ThumbsDownSolid.classList.add("hide")
+                }, 400);
+            }
+        })
+
+        ThumbsDownButton.addEventListener("click", function () {
+            ThumbsDownButton.classList.add("clicked")
+            clickRemove = setTimeout(() => {
+                ThumbsDownButton.classList.remove("clicked")
+            }, 1000);
+            if (ThumbsDownRegular.classList.contains("hide")) {
+                iconSwitch = setTimeout(() => {
+                    ThumbsDownRegular.classList.remove("hide")
+                    ThumbsDownSolid.classList.add("hide")
+                }, 500);
+            } else {
+                iconSwitch = setTimeout(() => {
+                    ThumbsDownRegular.classList.add("hide")
+                    ThumbsDownSolid.classList.remove("hide")
+                    ThumbsUpRegular.classList.remove("hide")
+                    ThumbsUpSolid.classList.add("hide")
+                }, 400);
+            }
+        })
     </script>
 </body>
 
