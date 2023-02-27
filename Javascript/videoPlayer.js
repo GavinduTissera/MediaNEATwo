@@ -25,8 +25,6 @@ playButton.addEventListener("click", togglePlay)
 function togglePlay() {
     if (video.paused || video.ended) {
         video.play()
-        console.log(playButton)
-        console.log(playButton.classList)
         playButton.classList.remove("play")
         playButton.classList.add("pause")
     } else {
