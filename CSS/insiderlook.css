@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(var(--BackgroundBlueGrey), var(--bgColourSeven));
+    background: var(--bgColourSeven);
     min-height: 100vh;
     line-height: 1.4;
 
@@ -28,7 +28,7 @@ button {
     justify-content: center;
     flex-direction: column; */
     height: 100vh;
-    /* position: relative; */
+    position: relative;
 }
 
 .VideoContainer {
@@ -42,7 +42,7 @@ button {
     position: relative;
     overflow: hidden;
     border-radius: 20px;
-    box-shadow: -1vw -1vw 16px #374E5C7c, 1vw 1vw 16px #2c414e7c;
+    box-shadow: -1vw -1vw 3vw #c6d9f3, 1vw 1vw 3vw #8693a5;
     
 }
 
@@ -102,6 +102,7 @@ button {
 .ContentTypeText.Title {
     font-size: 1.7rem;
     padding: 2.5vh 0 1vh;
+    z-index: 100;
 }
 
 .Buttons {
@@ -459,11 +460,11 @@ input[type="range"]::-webkit-slider-thumb {
     animation: ButtonHoverTilt 0.5s;
 }
 
-.ThumbsSection button.clicked {
+.ThumbsSection button.clicked, .CopyIcon.clicked {
     animation: ButtonSpin 1s;
 }
 
-.fa-thumbs-up, .fa-thumbs-down, .fa-share {
+.fa-regular, .fa-solid{
     font-size: 1.5rem;
     color: white;
 }
@@ -482,6 +483,41 @@ input[type="range"]::-webkit-slider-thumb {
     padding: 0 2vh;
     font-size: 1.1rem;
 }
+
+.ShareLinkCopyContainer {
+    position: absolute;
+    top: 10vh;
+    background: var(--CloudRedGradient);
+    z-index: 100;
+    width: 30vw;
+    border-radius: 20px;
+    box-shadow: -0.3vw -0.3vw 16px #374E5C7c, 0.3vw 0.3vw 16px #3149587c;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.ShareLink {
+    font-family: "Gordita Regular";
+    font-size: 1rem;
+    width: 80%;
+    background: var(--CloudRedGradient);
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1vh;
+    margin: 2vh;
+    border-radius: 20px;
+    border: 2px solid white;
+    outline: none;
+}
+
+.CopyIcon {
+    position: relative;
+}
+
+
 
 /* SEPERATOR BAR */
 

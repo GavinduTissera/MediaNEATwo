@@ -95,8 +95,13 @@
                                 <button class="ShareButton">
                                     <i class="fa-solid fa-share"></i>
                                     <div class="ShareText">Share!</div>
-                                    <div class="ShareLinkCopyContainer">
-                                        <div class="ShareLink">https://redballoonreviews.netlify.app/news/an-insider-look-into-our-lives</div>
+                                    <div class="ShareLinkCopyContainer hide">
+                                        <input class="ShareLink" readonly="readonly" type="text"
+                                            value="https://redballoonreviews.netlify.app/news/an-insider-look-into-our-lives"></input>
+                                        <div class="CopyIcon">
+                                            <i class="fa-regular fa-clone"></i>
+                                            <i class="fa-solid fa-check hide"></i>
+                                        </div>
                                     </div>
                                 </button>
                             </div>
@@ -169,14 +174,15 @@
                 <img src="https://placehold.it/728x90" alt="" class="StripAdImg">
             </div>
             <div class="ArticlePContainer APCOne">
-                <h3 class="ArticlePContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dui libero,
-                    tempor non mattis at, faucibus non risus. Cras elementum enim nisi, sed interdum quam ultricies
-                    vitae. Curabitur aliquam orci leo, et egestas nisi elementum a. Vestibulum ultricies nisi volutpat
-                    lectus bibendum condimentum et sit amet leo. Aliquam viverra lacus nisi, in fermentum sem commodo
-                    sit amet. Pellentesque lobortis lorem ut lorem semper, a cursus risus fringilla. Sed dignissim eros
-                    at ante lobortis, ultrices interdum libero sagittis. Proin facilisis hendrerit hendrerit.
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                    Praesent in commodo nisl. Nullam a lacinia orci.</h3>
+                <h3 class="ArticlePContent">Possibly the most anticipated movie of 2023, Our lives, is a must-see film
+                    that explores the interconectedness of us as people, and the unexpected relationships that can
+                    blossom within them. The movie begins with two women from vastly different backgrounds. Shen, played
+                    by the talented actress Leeann Lam, is the shy but kind-hearted daughter of a million-dollar
+                    businessman, while Kajal (played by the up-and-coming actress Anishka Addepalli) is a free-spirited
+                    artist living in the suburbs. The women seem to have no connection, until an unexpected event forces
+                    them to cross paths. This event makes them discover that their lives are more intertwined than they
+                    ever thought possible, which kickstarts a wild journey through time, confronting the obstacles that
+                    threaten to tear them apart.</h3>
             </div>
             <blockquote class="QuoteContainer">
                 <i class="fa-solid fa-quote-left"></i>
@@ -191,15 +197,7 @@
                     <img src="https://placehold.it/300x250" alt="" class="PictureContainerImg">
                 </div>
                 <div class="ArticlePContainer APCTwo">
-                    <h3 class="ArticlePContent">Phasellus ac sapien nec eros euismod tempus non vel massa. Quisque
-                        ullamcorper viverra mattis. Morbi efficitur placerat urna quis accumsan. Quisque lacus mi,
-                        ultrices
-                        quis turpis non, ultricies tincidunt magna. Nulla dapibus diam id mollis elementum. Curabitur
-                        eleifend ultricies consectetur. Etiam ut vestibulum lorem. Donec scelerisque diam et nibh tempus
-                        ultrices. Nunc volutpat maximus nisi et lobortis. Sed lobortis est et erat tincidunt, a sagittis
-                        nibh vehicula. Morbi diam tortor, faucibus sed auctor a, venenatis eu mi. Nullam bibendum
-                        facilisis
-                        velit, et scelerisque tortor maximus in. Suspendisse mollis ultrices convallis.</h3>
+                    <h3 class="ArticlePContent">As an enthusiast of </h3>
                 </div>
             </div>
             <div class="LineThree">
@@ -274,6 +272,38 @@
                 }, 400);
             }
         })
+
+        var ShareButton = document.querySelector(".ShareButton")
+        var ShareLinkCopyContainer = document.querySelector(".ShareLinkCopyContainer")
+        var CopyIconDiv = document.querySelector(".CopyIcon")
+        var CopyIcon = document.querySelector(".fa-clone")
+        var CheckedIcon = document.querySelector(".fa-check")
+        ShareButton.addEventListener("click", function () {
+            ShareLinkCopyContainer.classList.remove("hide")
+        })
+
+        document.addEventListener("click", function () {
+            ShareLinkCopyContainer.classList.add("hide")
+        })
+
+        ShareButton.addEventListener("click", function (e) {
+            e.stopPropagation()
+        })
+
+        CopyIconDiv.addEventListener("click", function () {
+            navigator.clipboard.writeText("https://redballoonreviews.netlify.app/news/an-insider-look-into-our-lives")
+            CopyIconDiv.classList.add("clicked")
+            clickRemove = setTimeout(() => {
+                CopyIconDiv.classList.remove("clicked")
+                CopyIcon.classList.remove("hide")
+                CheckedIcon.classList.add("hide")
+            }, 3000);
+            iconSwitch = setTimeout(() => {
+                CheckedIcon.classList.remove("hide")
+                CopyIcon.classList.add("hide")
+            }, 500);
+        })
+
     </script>
 </body>
 
