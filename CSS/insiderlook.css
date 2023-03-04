@@ -548,7 +548,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .ArticlePContainer {
-    font-family: "Gordita Regular";
+    font-family: "Gordita Light";
     width: 80%;
     padding: 2vh;
     font-size: 1.2rem;
@@ -556,8 +556,13 @@ input[type="range"]::-webkit-slider-thumb {
     float: left;
 }
 
-.ArticlePContainer.APCOne{
-    width: 60%;
+.ArticlePTitle {
+    font-size: 1.3rem;
+    font-family: "Gordita Bold";
+}
+
+.ArticlePContainer.APCTwo{
+    width: 100%;
 }
 
 .QuoteContainer {
@@ -582,12 +587,21 @@ input[type="range"]::-webkit-slider-thumb {
     padding-top: 2vh;
 }
 
-.LineTwo, .LineThree {
+.LineOne, .LineTwo, .LineThree, .LineFour, .LineFive {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     padding: 2vh 0;
+}
+
+.APCFour {
+    padding-left: 3vh;
+}
+
+.APCFive {
+    width: 100%;
+    text-align: center;
 }
 
 .PictureContainer {
