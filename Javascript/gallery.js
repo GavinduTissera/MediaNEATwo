@@ -12,7 +12,7 @@ var interval = setInterval( function(){
     if(ImageCounter > 5){
         ImageCounter = 1;
     }
-}, 5000)
+}, 3000)
 
 
 //When the left arrow is pressed in the gallery, it moves the counter to the previous image
@@ -24,7 +24,7 @@ function DecrementCounter() {
         ImageCounter--;
     }
     //it also stops the auto navigation for 5 seconds
-    setTimeout(interval,5000)
+    clearTimeout(interval,5000)
     document.getElementById("radio" + ImageCounter).checked = true;
 }
 
@@ -37,7 +37,7 @@ function IncrementCounter() {
         ImageCounter++;
     }
     //it also stops the auto navigation for 5 seconds
-    setTimeout(interval,5000)
+    clearTimeout(interval,5000)
     document.getElementById("radio" + ImageCounter).checked = true;
 }
 

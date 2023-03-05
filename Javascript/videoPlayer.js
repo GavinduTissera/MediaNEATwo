@@ -198,3 +198,23 @@ leftSeeker.addEventListener("click", function () {
 rightSeeker.addEventListener("click", function () {
     video.currentTime = video.currentTime + 5
 })
+
+function isPlayerInViewport(player) {
+    const rect = player.getBoundingClientRect()
+    return (rect.bottom >= 65 && rect.left >=0)
+}
+
+document.addEventListener("scroll", function() {
+    const Message = isPlayerInViewport(video)
+    if (Message == false) {
+        try {
+            video.requestPictureInPicture()
+        } catch (error) {
+            console.log(error)
+        }
+    } else {
+        if(document.pictureInPictureElement) {
+            document.exitPictureInPicture()
+        }
+    }
+})

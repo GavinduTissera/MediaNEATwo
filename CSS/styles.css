@@ -217,6 +217,10 @@ main {
     opacity: 75%;
 }
 
+.SlideContentLabel .ContentTypeLabel {
+    margin: 0 0 1.5vh;
+}
+
 .TitleTextDiv {
     position: relative;
     z-index: 50;
@@ -240,11 +244,19 @@ main {
     font-size: 1.4rem;
     font-family: "Gordita Bold";
     margin-bottom: 10px;
+    line-height: 1.2;
 }
 
 .ContentTypeText.Description{
     font-size: 0.8rem;
     font-family: "Gordita Light";
+    line-height: 1.2;
+}
+
+.ContentTypeText.SmallerDescription{
+    font-size: 0.7rem;
+    font-family: "Gordita Light";
+    line-height: 1.2;
 }
 
 .ContentText .Title {
@@ -330,12 +342,16 @@ main {
     z-index: 300;
 }
 
+.radioButtons {
+    height: 100%;
+}
+
 /* Setting traits of the 5 buttons */
 .-button{
     position: absolute;
     z-index: 100;
     border: none;
-    color: var(--BackgroundBlueGrey);
+    color: var(--white);
     font-size: 1.4rem;
     cursor: pointer;
     background: var(--CloudRedGradient);
@@ -344,13 +360,17 @@ main {
     box-shadow: 0 0 20px #00000064;
     opacity: 0.5;
     transition: 0.5s;
-    margin-top: 20%;
+    margin: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.fa-arrow-right-long, .fa-arrow-left-long {
+    padding: 2vh;
 }
 
 /* hover animations for the buttons */
 .-button:hover{
-    color: var(--white);
-    background: var(--LogoMainRed);
     opacity: 1;
 }
 
@@ -391,9 +411,13 @@ main {
 
 .slide img{
     width: 100%;
+    height: 100%;
     filter: brightness(50%);
     object-fit: cover;
-    
+}
+
+.danceGroupImg {
+    object-position: 50% 100%;
 }
 
 /* Creating the manual navigation */
@@ -491,6 +515,7 @@ main {
     position: absolute;
     bottom: 0;
     left: 0;
+    padding: 1.5vh 4.5vh 4.5vh;
 }
 
 .StoryOrderedList {
@@ -578,6 +603,16 @@ main {
     object-fit: cover;
 }
 
+.PopArtFullContent {
+    position: absolute;
+    top: 7.5%;
+    left: 2.5%;
+    padding: 0 1.5vh; 
+}
+
+.SmallerTitle {
+    padding: 1vh 0;
+}
 
 
 /* === MAIN ARTICLE SECTION START === */
@@ -649,7 +684,7 @@ main {
     position: absolute;
     border-radius: 20px;
     width: 100%;
-    height: 50%;
+    height: 70%;
     will-change: transform;
     transition: 0.5s ease;
 }
@@ -660,16 +695,60 @@ main {
     object-fit: cover;
     object-position: 50% 20%;
     /* border-radius: 20px; */
-    filter: brightness(60%);
+    border-width: 2px 1px;
+    border-style: solid solid none none;
+    border-color: var(--bgColourSeven);
+
+    filter: brightness(70%);
+
 }
 
 .ArticleContents {
     position: absolute;
-    top: 50%;
+    top: 70%;
     width: 100%;
-    height: 50%;
-    outline: 3px solid var(--bgColourSeven);
+    height: 30%;
+    border-width: 2px 1px;
+    border-style: solid solid none none;
+    border-color: var(--bgColourSeven);
     /* outline-offset: -1.5px; */
+}
+
+.ArticleImg.ImgOne {
+    border-style: none;
+}
+
+.ArticleContents.ArtOne {
+    border-style: solid none none none;
+}
+
+.ArticleImg.ImgTwo, .ArticleImg.ImgFive {
+    border-style: none solid none none;
+}
+
+.ArticleImg.ImgThree, .ArticleImg.ImgSix{
+    border-style: none none none solid;
+}
+
+.ArticleContents.ArtThree, .ArticleContents.ArtSix {
+    border-style: solid none none solid;
+}
+
+.ArticlePic.ArticleOne {
+    height: 75%;
+}
+
+.ArticleContents.ArtOne {
+    top: 75%;
+    height: 25%;
+}
+
+.ArticleImg.ImgOne {
+    object-position: 50% 15%;
+}
+
+.ArticleImg.ImgTwo {
+    object-position: 90% 20%;
 }
 
 .PopArtLabel .ContentTypeLabel {
