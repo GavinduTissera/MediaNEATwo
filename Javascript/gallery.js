@@ -24,7 +24,7 @@ function DecrementCounter() {
         ImageCounter--;
     }
     //it also stops the auto navigation for 5 seconds
-    clearTimeout(interval,5000)
+    clearTimeout(interval)
     document.getElementById("radio" + ImageCounter).checked = true;
 }
 
@@ -37,7 +37,7 @@ function IncrementCounter() {
         ImageCounter++;
     }
     //it also stops the auto navigation for 5 seconds
-    clearTimeout(interval,5000)
+    clearTimeout(interval)
     document.getElementById("radio" + ImageCounter).checked = true;
 }
 
