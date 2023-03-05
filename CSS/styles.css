@@ -188,7 +188,7 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 20%;
+    object-position: 50% 0%;
     filter: brightness(60%);
     will-change: transform;
     transition: 0.5s ease;
@@ -244,6 +244,12 @@ main {
     font-size: 1.4rem;
     font-family: "Gordita Bold";
     margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.ContentTypeText.SmallerTitle{
+    font-size: 1rem;
+    font-family: "Gordita Medium";
     line-height: 1.2;
 }
 
@@ -684,7 +690,7 @@ main {
     position: absolute;
     border-radius: 20px;
     width: 100%;
-    height: 70%;
+    height: 60%;
     will-change: transform;
     transition: 0.5s ease;
 }
@@ -705,9 +711,9 @@ main {
 
 .ArticleContents {
     position: absolute;
-    top: 70%;
+    top: 60%;
     width: 100%;
-    height: 30%;
+    height: 40%;
     border-width: 2px 1px;
     border-style: solid solid none none;
     border-color: var(--bgColourSeven);
@@ -756,6 +762,10 @@ main {
     bottom: 7.5%;
     left: -2.5%;
     
+}
+
+.ArticleOne .ContentTypeLabel {
+    bottom: 3%;
 }
 
 /* === MAIN ARTICLE SECTION END === */
@@ -862,8 +872,21 @@ main {
     z-index: 10;
 }
 
+.SpacerTwo {
+    aspect-ratio: 960/300;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 20;
+}
+
 .SeperatorLayer {
     background-image: url(../Includes/MediaNEAGraphics/Images/layered-waves-haikei.svg);
+}
+
+.SeperatorTwo {
+    background-image: url(../Includes/MediaNEAGraphics/Images/haikeitop.png);
 }
 
 .AboutUsSection {
@@ -884,10 +907,14 @@ main {
     height: calc(100% - 11vw);
 }
 
+.MainBalloon {
+    width: 100%;
+}
+
 .BalloonImg {
-    position: absolute;
+    position: sticky;
+    top: 20px;
     width: 10vw;
-    margin: 0 auto;
 }
 
 .CloudOneImg, .CloudTwoImg, .CloudThreeImg {
@@ -942,5 +969,38 @@ main {
     width: 30vw;
     height: 60vh;
     overflow: hidden;
+}
+
+.Socials {
+    height: calc(100% - 60px - 2rem - 3vw);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    position: relative;
+    margin: 3vw;
+}
+
+.Socials a{
+    width: 100%;
+    padding: 3vh 0;
+}
+
+.Socials div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.Socials .fa-brands {
+    font-size: 2rem;
+}
+
+.FollowText {
+    font-size: 1.4rem;
+    font-family: "Gordita Regular";
 }
 
