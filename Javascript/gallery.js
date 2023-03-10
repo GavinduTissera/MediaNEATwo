@@ -9,7 +9,7 @@ var ImageCounter = 1;
 var interval = setInterval( function(){
     document.getElementById("radio" + ImageCounter).checked = true;
     ImageCounter++;
-    if(ImageCounter > 5){
+    if(ImageCounter > 4){
         ImageCounter = 1;
     }
 }, 3000)
@@ -19,7 +19,7 @@ var interval = setInterval( function(){
 function DecrementCounter() {
     //If the counter is 1, it wraps to the last image
     if (ImageCounter == 1) {
-        ImageCounter = 5
+        ImageCounter = 4
     } else {
         ImageCounter--;
     }
@@ -31,7 +31,7 @@ function DecrementCounter() {
 //When the right arrow is pressed in the gallery, it moves the counter to the next image
 function IncrementCounter() {
     //If the counter is 5, it wraps to the first image
-    if (ImageCounter == 5) {
+    if (ImageCounter == 4) {
         ImageCounter = 1
     } else {
         ImageCounter++;
