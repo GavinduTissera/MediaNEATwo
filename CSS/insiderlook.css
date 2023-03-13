@@ -561,6 +561,11 @@ input[type="range"]::-webkit-slider-thumb {
     font-family: "Gordita Bold";
 }
 
+.ArticlePBigTitle {
+    font-size: 1.5rem;
+    font-family: "Gordita Bold";
+}
+
 .ArticlePContainer.APCTwo{
     width: 100%;
 }
