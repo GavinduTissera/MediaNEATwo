@@ -30,6 +30,8 @@ body {
     --MoonSunColour: brightness(0) saturate(100%) invert(74%) sepia(46%) saturate(1254%) hue-rotate(348deg) brightness(102%) contrast(98%);;
     --transitionDelay: 1s;
 
+    --BalloonPath: "M5,0 S4,2 4.5,4 S6,6 5.5,8 S4.2,9 4.8,12 S5.2,14 5.1,16 S5,18 5,20";
+
     overflow-x: hidden;
     color: var(--white);
     font-family: "Gordita Medium";
@@ -935,39 +937,27 @@ main {
 /* === ABOUT US SECTION START === */
 
 .Spacer {
-    aspect-ratio: 960/300;
     width: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     position: relative;
-    top: 45vh;
     z-index: 10;
+    overflow: hidden;
 }
 
-.SpacerTwo {
-    aspect-ratio: 960/300;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+.wavesTop {
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 20;
-}
-
-.SeperatorLayer {
-    background-image: url(../Includes/MediaNEAGraphics/Images/layered-waves-haikei.svg);
-}
-
-.SeperatorTwo {
-    background-image: url(../Includes/MediaNEAGraphics/Images/haikeitop.png);
 }
 
 .AboutUsSection {
     position: relative;
-    top: 0vh;
     background-color: var(--DarkBackgroundBlue);
     width: 100%;
-    height: 120vh;
+    top: 25vh;
 }
 
 .AboutUs .Title {
@@ -993,10 +983,25 @@ main {
 }
 
 .BalloonImg {
-    position: sticky;
-    top: 20px;
-    width: 10vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15vw;
+    z-index: 15;
+    offset-rotate: 0deg;
+    animation: BalloonTravel 5s ease infinite;
 }
+
+@keyframes BalloonTravel {
+    0% {
+        offset-distance: 0%;
+    }
+    100% {
+        offset-distance: 100%;
+    }
+}
+
+
 
 .CloudOneImg, .CloudTwoImg, .CloudThreeImg {
     width: 20vw;
