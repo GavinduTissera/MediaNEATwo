@@ -989,7 +989,7 @@ main {
     width: 15vw;
     z-index: 15;
     offset-rotate: 0deg;
-    animation: BalloonTravel 5s ease infinite;
+    animation: BalloonTravel 10s ease infinite;
 }
 
 @keyframes BalloonTravel {
