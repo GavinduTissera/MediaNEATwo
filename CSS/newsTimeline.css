@@ -25,11 +25,35 @@ body {
     margin: 15vh auto;
     position: relative;
 }
+.TimelineBigContainer {
+    position: relative;
+}
 
-.timelineContainer {
+.timelineContainer{
     margin: 10vh 0 0;
     position: relative;
     width: 42.5%;
+}
+
+.timelineDate {
+    width: 42.5%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.timelineDate.right {
+    text-align: left;
+}
+
+.timelineDate.left {
+    text-align: right;
+}
+
+.timelineDateContent {
+    font-size: 2rem;
+    font-family: "Gordita Bold";
 }
 
 .TimelineProgContainer {
@@ -38,7 +62,7 @@ body {
 
 .BalloonTimeline {
     position: fixed;
-    z-index: 100;
+    z-index: 1;
     width: 90%;
     margin:  0 auto;
     height: 12.5%;
@@ -90,7 +114,7 @@ body {
 .timelineContent {
     opacity: 0;
     background: var(--CloudRedGradient);
-    transition: transform .8s, opacity .8s;
+    transition: transform .5s, opacity .5s;
     border-radius: 20px;
 }
 
@@ -120,5 +144,6 @@ body {
     top: 27vh;
     left: -6vh;
 }
+
 
 

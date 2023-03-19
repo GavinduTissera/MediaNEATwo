@@ -25,6 +25,7 @@ body {
     --CloudRedHighlight: #F3AB8A;
     --backgroundred: #cca6a6;
     --LogoMainRed: #d31e31;
+    --LogoTextColour: #D3272D;
     --LogoCreamOutline: #FFEFDB;
     --white: #fff;
     --MoonSunColour: brightness(0) saturate(100%) invert(74%) sepia(46%) saturate(1254%) hue-rotate(348deg) brightness(102%) contrast(98%);;
@@ -1077,16 +1078,19 @@ main {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: row;
 }
 
 .Socials .fa-brands {
     font-size: 2rem;
+    aspect-ratio: 1/1;
 }
 
 .FollowText {
     font-size: 1.4rem;
     font-family: "Gordita Regular";
+    position: relative;
+    left: 2vw;
 }
 

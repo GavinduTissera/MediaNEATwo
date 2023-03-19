@@ -1,0 +1,114 @@
+.Footer {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+}
+
+.Spacer {
+    position: absolute;
+    top: 25vh;
+}
+
+.MainPageImage {
+    position: absolute;
+    top: 0;
+    z-index: 30;
+}
+
+.FooterContainer {
+    background-color: var(--DarkBackgroundBlue);
+    width: 100%;
+    position: relative;
+    height: 85vh;
+    top: 15vh;
+}
+
+.LogoSection {
+    width: 35%;
+    position: relative;
+    padding: 5vh;
+    top: 100%;
+    transform: translateY(-100%);
+
+}
+
+.MainLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MainLogoBalloon {
+    height: 50vh;
+    width: 50vh;
+}
+
+.MissionStatementText {
+    font-family: "Gordita Medium";
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.VerticalSeperatorBar {
+    height: 60%;
+    width: 2px;
+    border: 1px solid var(--BackgroundBlueGrey);
+    border-radius: 20px;
+    position: absolute;
+    left: 35%;
+    top: 0;
+    transform: translateY(60%);
+}
+
+.ContentSection {
+    width: 55%;
+    min-height: 60%;
+    position: absolute;
+    left: 40%;
+    padding: 5vh;
+    top: 100%;
+    transform: translateY(-110%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.MainPagesTitle, .SocialMediaTitle {
+    padding: 2vh 0;
+}
+
+.MainPagesText {
+    font-family: "Gordita Medium";
+    font-size: 1.2rem;
+}
+
+.Page {
+    padding: 1vh 0;
+    color: #bababa;
+    transition: 0.3s ease;
+}
+
+.Page:hover {
+    color: var(--white);
+}
+
+.ContentSection ul {
+    list-style-type: none;
+}
+
+.CopyrightSection {
+    position: absolute;
+    bottom: 5%;
+    color: #bababa;
+    width: 55%;
+    left: 40%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.CopyrightText {
+    margin: 0 auto;
+}
