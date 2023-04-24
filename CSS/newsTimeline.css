@@ -66,6 +66,7 @@ body {
     width: 90%;
     margin:  0 auto;
     height: 12.5%;
+    pointer-events: none;
 }
 
 .redBalloonTimeline {

@@ -841,6 +841,7 @@ main {
 
 .IWInfoText {
     padding: 0 0 2.5vh 0;
+    line-height: 1.5;
 }
 
 .CarouselWrapper {

@@ -85,7 +85,7 @@
 
 .Page {
     padding: 1vh 0;
-    color: #bababa;
+    color: #8c8c8c;
     transition: 0.3s ease;
 }
 
@@ -100,7 +100,7 @@
 .CopyrightSection {
     position: absolute;
     bottom: 5%;
-    color: #bababa;
+    color: #8c8c8c;
     width: 55%;
     left: 40%;
     margin: 0 auto;
