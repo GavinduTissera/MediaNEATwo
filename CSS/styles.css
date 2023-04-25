@@ -1042,8 +1042,8 @@ main {
 
 .TextSection {
     display: flex;
-    align-items: center;
     justify-content: space-evenly;
+    padding-bottom: 7vh;
 }
 
 .AboutUsFullContent {
@@ -1061,6 +1061,7 @@ main {
     background: var(--CloudRedGradient);
     width: 30vw;
     min-height: 60vh;
+    height: 100%;
     overflow: hidden;
 }
 
