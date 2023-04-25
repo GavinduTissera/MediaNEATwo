@@ -586,6 +586,10 @@ main {
     width: 100%;
 }
 
+.StoryOrderedListText {
+    padding-right: 2vw;
+}
+
 .StoryOrderedListItem:hover {
     text-decoration: underline;
 }
@@ -833,6 +837,7 @@ main {
 
 .IWD {
     top: 15vh;
+    width: 60vw;
 }
 
 .IW {
